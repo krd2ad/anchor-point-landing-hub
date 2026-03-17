@@ -1,5 +1,7 @@
 import { Phone, Mail, Linkedin } from "lucide-react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import riversPhoto from "@/assets/rivers.png";
+import samPhoto from "@/assets/sam.png";
 
 const members = [
   {
@@ -9,6 +11,7 @@ const members = [
     phone: "215.406.0472",
     email: "Sam@anchorpointlending.com",
     linkedin: "https://www.linkedin.com/in/sam-lichmira-70337136/",
+    photo: samPhoto,
   },
   {
     name: "Rivers",
@@ -17,6 +20,7 @@ const members = [
     phone: "504.214.5329",
     email: "Rivers@anchorpointlending.com",
     linkedin: "https://www.linkedin.com/in/rivers-fike-p-e-43b47213/",
+    photo: riversPhoto,
   },
 ];
 
@@ -37,10 +41,12 @@ const Team = () => (
             className="bg-card rounded-lg border border-border p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 text-center"
           >
             <Avatar className="h-20 w-20 mx-auto mb-5">
+              <AvatarImage src={m.photo} alt={`${m.name} headshot`} className="object-cover" />
               <AvatarFallback className="bg-accent text-accent-foreground text-2xl font-bold">
                 {m.initials}
               </AvatarFallback>
             </Avatar>
+
             <h3 className="text-xl font-semibold text-card-foreground mb-1">{m.name}</h3>
             <p className="text-sm text-muted-foreground mb-6">{m.title}</p>
 
@@ -52,6 +58,7 @@ const Team = () => (
               >
                 <Phone className="h-4 w-4" />
               </a>
+
               <a
                 href={`mailto:${m.email}`}
                 className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors"
@@ -59,6 +66,7 @@ const Team = () => (
               >
                 <Mail className="h-4 w-4" />
               </a>
+
               <a
                 href={m.linkedin}
                 target="_blank"
