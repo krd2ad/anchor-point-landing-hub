@@ -6,17 +6,17 @@ const members = [
     name: "Sam",
     title: "Managing Partner",
     initials: "S",
-    phone: "+1 (555) 123-4567",
-    email: "sam@anchorpointlending.com",
-    linkedin: "#",
+    phone: "215.406.0472",
+    email: "Sam@anchorpointlending.com",
+    linkedin: "https://www.linkedin.com/in/sam-lichmira-70337136/",
   },
   {
     name: "Rivers",
     title: "Managing Partner",
     initials: "R",
-    phone: "+1 (555) 987-6543",
-    email: "rivers@anchorpointlending.com",
-    linkedin: "#",
+    phone: "504.214.5329",
+    email: "Rivers@anchorpointlending.com",
+    linkedin: "https://www.linkedin.com/in/rivers-fike-p-e-43b47213/",
   },
 ];
 
@@ -46,7 +46,7 @@ const Team = () => (
 
             <div className="flex items-center justify-center gap-4">
               <a
-                href={`tel:${m.phone}`}
+                href={`tel:${m.phone.replaceAll(".", "")}`}
                 className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors"
                 aria-label={`Call ${m.name}`}
               >
