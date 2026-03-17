@@ -1,3 +1,4 @@
+import { Linkedin } from "lucide-react";
 import modernRoom from "@/assets/modern-room.png";
 
 const About = () => (
@@ -8,6 +9,7 @@ const About = () => (
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
             About Anchor Point Lending
           </h2>
+
           <div className="space-y-5 text-muted-foreground leading-relaxed">
             <p>
               Anchor Point Lending was founded in 2023 by Rivers Fike and Sam Lichmira, whose partnership began years earlier when they met while studying abroad in Sydney. After building their own real estate investing experience and launching a joint venture together, they created Anchor Point to bring flexible, relationship-driven capital to operators like themselves.
@@ -16,6 +18,26 @@ const About = () => (
               The firm was built to serve borrowers overlooked by traditional lenders and to offer investors access to disciplined, real estate-backed lending opportunities. The name reflects their goal: to be a steady, reliable capital partner in a fast-moving market.
             </p>
           </div>
+
+          <a
+            href="https://www.linkedin.com/company/anchor-point-lending/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center gap-3 rounded-lg border border-border bg-card px-5 py-4 text-left shadow-sm transition-all hover:shadow-md hover:border-primary/30"
+            aria-label="Find Anchor Point Lending on LinkedIn"
+          >
+            <div className="flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
+              <Linkedin className="h-5 w-5" />
+            </div>
+            <div>
+              <div className="text-sm font-semibold text-foreground">
+                Find us on LinkedIn
+              </div>
+              <div className="text-sm text-muted-foreground">
+                Follow Anchor Point Lending
+              </div>
+            </div>
+          </a>
         </div>
 
         <div className="hidden lg:block">
