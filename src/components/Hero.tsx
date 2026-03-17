@@ -5,7 +5,6 @@ const Hero = () => (
     id="home"
     className="relative min-h-[90vh] flex items-center justify-center bg-accent text-accent-foreground overflow-hidden"
   >
-    {/* Gradient overlay */}
     <div className="absolute inset-0 bg-gradient-to-br from-accent via-navy-light to-accent opacity-90" />
 
     <div className="relative z-10 container mx-auto px-4 lg:px-8 py-32 text-center max-w-4xl">
@@ -17,14 +16,18 @@ const Hero = () => (
         the capital and expertise real estate professionals need to execute with confidence.
       </p>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 text-base rounded-md">
+        <Button
+          asChild
+          size="lg"
+          className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 text-base rounded-md"
+        >
           <a href="#solutions">Explore Solutions</a>
         </Button>
         <Button
           asChild
           size="lg"
           variant="outline"
-          className="border-white/30 text-white hover:bg-white/10 hover:text-white px-8 text-base rounded-md"
+          className="bg-white/5 text-white border-white/30 hover:bg-white/10 hover:text-white px-8 text-base rounded-md"
         >
           <a href="#team">Contact Us</a>
         </Button>
