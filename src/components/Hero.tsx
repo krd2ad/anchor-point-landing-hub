@@ -9,11 +9,11 @@ const Hero = () => (
 
     <div className="relative z-10 container mx-auto px-4 lg:px-8 py-32 text-center max-w-4xl">
       <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6">
-        Capital Solutions to Move Your Projects Forward
+        Flexible, Relationship-Driven Capital for Real Estate Operators
       </h1>
       <p className="text-lg sm:text-xl text-white/75 max-w-2xl mx-auto mb-10 leading-relaxed">
-        Flexible private lending built on speed, trust, and partnership. We provide
-        the capital and expertise real estate professionals need to execute with confidence.
+        Founded by experienced real estate investors, Anchor Point Lending provides
+        disciplined, reliable capital for borrowers who need a steady partner in a fast-moving market.
       </p>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
         <Button
