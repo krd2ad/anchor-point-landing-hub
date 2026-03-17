@@ -1,20 +1,29 @@
 import { Button } from "@/components/ui/button";
+import heroCityscape from "@/assets/hero-cityscape.png";
 
 const Hero = () => (
   <section
     id="home"
-    className="relative min-h-[90vh] flex items-center justify-center bg-accent text-accent-foreground overflow-hidden"
+    className="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
   >
-    <div className="absolute inset-0 bg-gradient-to-br from-accent via-navy-light to-accent opacity-90" />
+    <div
+      className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${heroCityscape})` }}
+    />
 
-    <div className="relative z-10 container mx-auto px-4 lg:px-8 py-32 text-center max-w-4xl">
+    <div className="absolute inset-0 bg-navy-light/70" />
+    <div className="absolute inset-0 bg-gradient-to-b from-accent/70 via-accent/55 to-accent/80" />
+
+    <div className="relative z-10 container mx-auto px-4 lg:px-8 py-32 text-center max-w-4xl text-white">
       <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6">
         Flexible, Relationship-Driven Capital for Real Estate Operators
       </h1>
-      <p className="text-lg sm:text-xl text-white/75 max-w-2xl mx-auto mb-10 leading-relaxed">
+
+      <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
         Founded by experienced real estate investors, Anchor Point Lending provides
         disciplined, reliable capital for borrowers who need a steady partner in a fast-moving market.
       </p>
+
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
         <Button
           asChild
@@ -23,6 +32,7 @@ const Hero = () => (
         >
           <a href="#solutions">Explore Solutions</a>
         </Button>
+
         <Button
           asChild
           size="lg"
