@@ -1,3 +1,5 @@
+import modernRoom from "@/assets/modern-room.png";
+
 const About = () => (
   <section id="about" className="py-24 bg-background">
     <div className="container mx-auto px-4 lg:px-8">
@@ -17,12 +19,12 @@ const About = () => (
         </div>
 
         <div className="hidden lg:block">
-          <div className="rounded-lg bg-accent h-80 flex items-center justify-center">
-            <div className="text-center text-accent-foreground/60 px-8">
-              <div className="text-6xl font-bold mb-2 text-accent-foreground/80">APL</div>
-              <p className="text-sm">Anchor Point Lending</p>
-              <p className="text-xs mt-1 text-accent-foreground/40">Capital · Trust · Execution</p>
-            </div>
+          <div className="rounded-lg overflow-hidden h-80 shadow-sm">
+            <img
+              src={modernRoom}
+              alt="Modern conference room"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
