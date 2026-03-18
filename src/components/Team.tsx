@@ -30,7 +30,7 @@ const Team = () => (
       <div className="text-center mb-16">
         <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Our Team</h2>
         <p className="text-muted-foreground max-w-xl mx-auto">
-          Get in touch with the people behind Anchor Point Lending.
+          Questions? Or want to get started? Get in touch with the people behind Anchor Point Lending.
         </p>
       </div>
 
