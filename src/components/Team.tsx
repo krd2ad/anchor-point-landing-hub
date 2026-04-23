@@ -1,7 +1,7 @@
 import { Phone, Mail, Linkedin } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import riversPhoto from "@/assets/rivers.png";
-import samPhoto from "@/assets/sam.png";
+import samPhoto from "@/assets/sam-headshot.png";
 
 const members = [
   {
