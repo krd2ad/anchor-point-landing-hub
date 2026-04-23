@@ -119,8 +119,11 @@ const Team = () => {
                   rel="noreferrer"
                   className="inline-flex"
                 >
-                  <Button variant="outline" className="w-full sm:w-auto">
-                    <Linkedin className="h-4 w-4 mr-2" />
+                  <Button
+                    variant="outline"
+                    className="w-full sm:w-auto text-primary hover:text-primary"
+                  >
+                    <Linkedin className="h-4 w-4 mr-2 text-primary" />
                     LinkedIn
                   </Button>
                 </a>
