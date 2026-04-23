@@ -1,7 +1,9 @@
-import { Phone, Mail, Linkedin } from "lucide-react";
+import { useState } from "react";
+import { Phone, Mail, Linkedin, Copy } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import riversPhoto from "@/assets/rivers.png";
-import samPhoto from "@/assets/sam-headshot.png";
+import samPhoto from "@/assets/sam-headshot.png"; // or "@/assets/sam-headshot.png" if you use a new filename
 
 const members = [
   {
@@ -24,64 +26,111 @@ const members = [
   },
 ];
 
-const Team = () => (
-  <section id="team" className="py-24 bg-secondary">
-    <div className="container mx-auto px-4 lg:px-8">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Our Team</h2>
-        <p className="text-muted-foreground max-w-xl mx-auto">
-          Questions? Or want to get started? Get in touch with the people behind Anchor Point Lending.
-        </p>
-      </div>
+const Team = () => {
+  const [copiedValue, setCopiedValue] = useState("");
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
-        {members.map((m) => (
-          <div
-            key={m.name}
-            className="bg-card rounded-lg border border-border p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 text-center"
-          >
-            <Avatar className="h-20 w-20 mx-auto mb-5">
-              <AvatarImage src={m.photo} alt={`${m.name} headshot`} className="object-cover" />
-              <AvatarFallback className="bg-accent text-accent-foreground text-2xl font-bold">
-                {m.initials}
-              </AvatarFallback>
-            </Avatar>
+  const handleCopy = async (value: string) => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopiedValue(value);
+      setTimeout(() => setCopiedValue(""), 2000);
+    } catch (error) {
+      console.error("Copy failed:", error);
+    }
+  };
 
-            <h3 className="text-xl font-semibold text-card-foreground mb-1">{m.name}</h3>
-            <p className="text-sm text-muted-foreground mb-6">{m.title}</p>
+  return (
+    <section id="team" className="py-20 bg-muted/30">
+      <div className="container mx-auto px-4">
+        <div className="max-w-2xl mx-auto text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Team</h2>
+          <p className="text-lg text-muted-foreground">
+            Questions? Or want to get started? Get in touch with the people behind
+            Anchor Point Lending.
+          </p>
+        </div>
 
-            <div className="flex items-center justify-center gap-4">
-              <a
-                href={`tel:${m.phone.replaceAll(".", "")}`}
-                className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors"
-                aria-label={`Call ${m.name}`}
-              >
-                <Phone className="h-4 w-4" />
-              </a>
+        <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
+          {members.map((m) => (
+            <div
+              key={m.email}
+              className="rounded-2xl border bg-background p-6 shadow-sm"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <Avatar className="h-24 w-24">
+                  <AvatarImage src={m.photo} alt={`${m.name} headshot`} className="object-cover" />
+                  <AvatarFallback>{m.initials}</AvatarFallback>
+                </Avatar>
 
-              <a
-                href={`mailto:${m.email}`}
-                className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors"
-                aria-label={`Email ${m.name}`}
-              >
-                <Mail className="h-4 w-4" />
-              </a>
+                <div>
+                  <h3 className="text-2xl font-semibold">{m.name}</h3>
+                  <p className="text-muted-foreground">{m.title}</p>
+                </div>
+              </div>
 
-              <a
-                href={m.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors"
-                aria-label={`${m.name} LinkedIn`}
-              >
-                <Linkedin className="h-4 w-4" />
-              </a>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between gap-3 rounded-xl border px-4 py-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <Phone className="h-4 w-4 shrink-0 text-primary" />
+                    <div className="min-w-0">
+                      <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                        Phone
+                      </p>
+                      <p className="text-sm font-medium break-all">{m.phone}</p>
+                    </div>
+                  </div>
+
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => handleCopy(m.phone)}
+                  >
+                    <Copy className="h-4 w-4 mr-2" />
+                    {copiedValue === m.phone ? "Copied" : "Copy"}
+                  </Button>
+                </div>
+
+                <div className="flex items-center justify-between gap-3 rounded-xl border px-4 py-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <Mail className="h-4 w-4 shrink-0 text-primary" />
+                    <div className="min-w-0">
+                      <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                        Email
+                      </p>
+                      <p className="text-sm font-medium break-all">{m.email}</p>
+                    </div>
+                  </div>
+
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => handleCopy(m.email)}
+                  >
+                    <Copy className="h-4 w-4 mr-2" />
+                    {copiedValue === m.email ? "Copied" : "Copy"}
+                  </Button>
+                </div>
+
+                <a
+                  href={m.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex"
+                >
+                  <Button variant="outline" className="w-full sm:w-auto">
+                    <Linkedin className="h-4 w-4 mr-2" />
+                    LinkedIn
+                  </Button>
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Team;
