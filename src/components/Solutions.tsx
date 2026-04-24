@@ -11,7 +11,7 @@ const solutions = [
     icon: Landmark,
     title: "Commercial",
     description:
-      "Financing for income-producing commercial real estate including office, retail, multifamily, and mixed-use properties.",
+      "Financing for income-producing commercial real estate including land, retail, multifamily, and mixed-use properties.",
   },
   {
     icon: Hammer,
